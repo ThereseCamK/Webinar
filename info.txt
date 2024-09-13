@@ -1,0 +1,21 @@
+Adventure
+Hero(es) Webinarjentene på tur?
+Valgmuligheter; Forskjellige plasser å lete etter ting?
+Point and click som trigger events? Quest
+Hero har levelbar? XP?- Kodeskillz og Nk Skillz
+Sloss med noe som popper opp? (Terje, Eskil??)
+Treasure - Plukke opp våpen og penger (Tastatur, mikrofon)
+Penger kan brukes til å oppgradere kode/nk skillz ()
+Bag med noe annet moro oppi? Energidrikk/kaffe? TLF -> use chatGPT
+Hvordan gjøre at det ser kult ut? Bakgrunnsbilder, animasjoner, 
+Tidsbegrensinger?
+
+bruke wasd for å bevege seg 
+
+let key = event.key;
+
+if (key == "a" || key == "A") {
+  let text = "You pressed the 'A' key!";
+}
+
+https://www.w3schools.com/jsref/event_key_location.asp
