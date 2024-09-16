@@ -8,9 +8,11 @@ Treasure - Plukke opp våpen og penger (Tastatur, mikrofon)
 Penger kan brukes til å oppgradere kode/nk skillz ()
 Bag med noe annet moro oppi? Energidrikk/kaffe? TLF -> use chatGPT
 Hvordan gjøre at det ser kult ut? Bakgrunnsbilder, animasjoner, 
-Tidsbegrensinger?
 
+NiceTOHave:
 bruke wasd for å bevege seg 
+
+Tidsbegrensinger?
 
 let key = event.key;
 
@@ -19,3 +21,23 @@ if (key == "a" || key == "A") {
 }
 
 https://www.w3schools.com/jsref/event_key_location.asp
+
+
+Model 
+app (current page)
+healthBar
+inventory - våpen, kaffe, energidrikk - objekter
+inventory - penger 
+levelbarNk - start med tall
+levelCode - 
+opponents
+backgroundImages
+itemImages 
+
+
+
+
+View
+
+Controller
+
