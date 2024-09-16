@@ -14,6 +14,10 @@ function fightOpponent(opponent){
 
 }
 
+function getRandomCash(){
+    
+}
+
 function completeLevel(){
 
 }
@@ -27,5 +31,5 @@ function increaseHealth(){
 }
 
 function buyHealthPotion(){
-    
+
 }
