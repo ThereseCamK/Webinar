@@ -1,20 +1,18 @@
 const model = {
-
-
-
 // backgroundImages
 // itemImages 
 userName: '',
 userImg: 'pictures/twoHeads.jpg',
 currentPage: '',
+statusText: 'Two girls ready to go on an adventure!',
 currentLevel: 1,
-healthBar: 50,
+healthBar: 100,
 cashMoney:[1,5,10,50],
 moneyBank: 0,
-levelNK : 0,
-levelCode: 0,
+levelNK : 30,
+levelCode: 60,
 backgroundImgs:['pictures/dungeon.png', 'pictures/forest.png', 'pictures/lair.png', 'pictures/mountains.png'],
-inventory:[
+pickUpItems:[
     {
         name: 'kaffe',
         healthXp: 10,
@@ -48,25 +46,23 @@ inventory:[
         useToTasks: true,
         img: '',
     },
-
 ],
-
-
+inventory: [],
+pages: ['fightOverPage', 'gameOverPage', 'startPage', 'fightPage'],
 
 opponents:[
     {
         name: 'Terje',
         img: '',
         codeMaster: true, // false er lik NkMaster
-        
+        health: 100
     },
     {
         name: 'Eskil',
         img: '',
         codeMaster: false,
+        health: 100
     },
 ],
-
-
 
 }
