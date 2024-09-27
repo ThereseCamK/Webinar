@@ -1,5 +1,6 @@
 updateMainView();
 function updateMainView(){
+
     let html =''
 
     // bakgrunnsbilde, den skal oppdateres i henhold til level
@@ -14,14 +15,30 @@ function updateMainView(){
 
     html = /*HTML*/`
         <div class="mainContent" style="background-image: url(${model.backgroundImgs[model.currentLevel -1]}); background-size: cover;">
-        <div class="levelBarCodeSkillz codeSkillz"><div class="codeSkillz" style="width:${model.levelCode}px; background-color: ${getBackgroundColor(model.levelCode)};"></div>
-        <div class="levelBarCodeSkillz nkSkillz"><div class="nkSkillz" style="width:${model.levelNK}px; background-color: ${getBackgroundColor(model.levelNK)};"></div>
-        <div class="levelBarCodeSkillz health"><div class="health" style="width:${model.healthBar}px; background-color: ${getBackgroundColor(model.healthBar)};"></div>
+        
+        <div class="row1 levelBarCodeSkillz">
+            <div class="bar" style="width:${model.levelCode}px; background-color: ${getBackgroundColor(model.levelCode)};"></div>
         </div>
+        <div class="row2 levelBarCodeSkillz">
+            <div class="bar" style="width:${model.levelNK}px; background-color: ${getBackgroundColor(model.levelNK)};"></div>
         </div>
+        <div class="row3 levelBarCodeSkillz">
+            <div class="bar" style="width:${model.healthBar}px; background-color: ${getBackgroundColor(model.healthBar)};"></div>
+        </div>
+
+        <img src="/pictures/twoHeadsNoBG.png" style=" heigth: 400px; width: 400px; position: absolute; left: 70%;  top:58%;" />
+        </div>
+        
     `
+    // <img src="/pictures/twoHeadsNoBG.png" style=" heigth: 400px; width: 400px; position: absolute; left: ${model.itemLeft}%;  top: ${model.itemTop}%;" />
     document.getElementById('app').innerHTML = html;
 
+}
+getRendomItemPos();
+function getRendomItemPos(){
+    model.itemLeft = Math.floor(Math.random()* 60 ) +1;
+    model.itemTop = 10 +Math.floor(Math.random()* 50 ) ;
+    updateMainView();
 }
 
 function getBackgroundColor(statusBar){
