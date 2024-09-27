@@ -25,7 +25,7 @@ function updateMainView(){
         <div class="row3 levelBarCodeSkillz">
             <div class="bar" style="width:${model.healthBar}px; background-color: ${getBackgroundColor(model.healthBar)};"></div>
         </div>
-
+       ${itemPicture()}
         <img src="/pictures/twoHeadsNoBG.png" style=" heigth: 400px; width: 400px; position: absolute; left: 70%;  top:58%;" />
         </div>
         
@@ -33,6 +33,17 @@ function updateMainView(){
     // <img src="/pictures/twoHeadsNoBG.png" style=" heigth: 400px; width: 400px; position: absolute; left: ${model.itemLeft}%;  top: ${model.itemTop}%;" />
     document.getElementById('app').innerHTML = html;
 
+}
+
+function itemPicture(){
+
+    let randomItem = getRandomItem();
+    console.log(randomItem)
+    if(model.pickUpItems.length > 0){
+        return ` <img onclick="pickUp('${randomItem}')" 
+        src="${model.pickUpItems[randomItem].img}" style=" heigth: 200px; width: 200px; position: absolute; left: 30%;  top:38%;"/>`
+    }
+    else return '';
 }
 getRendomItemPos();
 function getRendomItemPos(){

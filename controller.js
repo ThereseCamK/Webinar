@@ -1,6 +1,20 @@
-function pickUp(item){
-    model.inventory.add(item)
+function pickUp(index){
+    console.log(index)
+    let item = model.pickUpItems[index];
+    model.inventory.push(item)
+    model.pickUpItems.splice(index,1);
     updateMainView()
+}
+
+function getRandomItem(){
+   return Math.floor(Math.random() * model.pickUpItems.length)
+}
+
+function randomBossFightCheck(index){
+    let rng = Math.floor(Math.random() * 10)
+    if(rng > 5){
+        
+    }
 }
 
 function increaseHealth(value){
