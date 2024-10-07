@@ -6,13 +6,15 @@ userImg: 'pictures/twoHeads.jpg',
 currentPage: '',
 statusText: 'Two girls ready to go on an adventure!',
 currentLevel: 1,
-healthBar: 100,
+healthBar: 90,
 cashMoney:[1,5,10,50],
-itemTop: 70,
-itemLeft: 20,
+itemTop: 75,// min 10, max 70
+itemLeft: 60, // min 1, max 60
 moneyBank: 0,
 levelNK : 30,
 levelCode: 60,
+itemView: '',
+inventoryMode: false,
 backgroundImgs:['pictures/dungeon.png', 'pictures/forest.png', 'pictures/lair.png', 'pictures/mountains.png'],
 pickUpItems:[
     {
@@ -22,6 +24,9 @@ pickUpItems:[
         nkSkillz: 0,
         useToTasks: false,
         img: '/pictures/coffe.JPG',
+        top: 20,
+        left: 30,
+        level: 1,
 
     },
     {
@@ -31,24 +36,28 @@ pickUpItems:[
         nkSkillz: 0,
         useToTasks: false,
         img: '/pictures/redbull.jpg',
+        level: 1
     },
-    // {
-    //     name: 'tastatur',
-    //     healthXp: 0,
-    //     codeSkillz: 10,
-    //     nkSkillz: 0,
-    //     useToTasks: true,
-    //     img: '',
-    // },
-    // {
-    //     name: 'mikrofon',
-    //     healthXp: 0,
-    //     codeSkillz: 0,
-    //     nkSkillz: 10,
-    //     useToTasks: true,
-    //     img: '',
-    // },
+    {
+        name: 'tastatur',
+        healthXp: 0,
+        codeSkillz: 10,
+        nkSkillz: 0,
+        useToTasks: true,
+        img: '/pictures/keyboard.jpg',
+        level: 2
+    },
+    {
+        name: 'mikrofon',
+        healthXp: 0,
+        codeSkillz: 0,
+        nkSkillz: 10,
+        useToTasks: true,
+        img: '/pictures/mic.jpeg',
+        level: 2
+    },
 ],
+bagview: '',
 inventory: [],
 pages: ['fightOverPage', 'gameOverPage', 'startPage', 'fightPage'],
 

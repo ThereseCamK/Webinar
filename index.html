@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    
-        body,html{
- 
+        body,html{ 
             margin:0;
             padding: 0;
         }
@@ -20,11 +18,10 @@
             display: grid;        
             grid-template-columns: 300px auto;
             grid-template-rows: repeat(3, 30px) auto;
-            grid-template-areas: 'row1 something'
+            grid-template-areas:'row1 something'
                                 'row2 something'
                                 'row3 something';
         }
-
         .row1{
             grid-area: row1;
         }
@@ -36,53 +33,39 @@
         }
         .levelBarCodeSkillz{
             border: 3px solid rgb(114, 109, 109);
-            
             /* grid-column: 1; */
             width: 100%;
-            
-            
-         
         }  
         .levelBarCodeSkillz:nth-child(1){
             border-bottom: 0;
-         
         } 
- 
         .levelBarCodeSkillz:nth-child(3){
-
             border-top: 0;
-         
         }  
-             
-
         .bar{
             height: 100%;
-            
         }
         .codeSkillz{
             /* grid-row: 1; */
             height: 30px;
-          
         }
         .nkSkillz{         
             /* grid-row: 2; */
             height: 30px;
-      
         }
         .health{
-    
             /* grid-row: 3; */
             height: 30px;
-      
+        }
+        .bagContent{
+            color:white;
+            font-size: 30px;
         }
     </style>
-  
-    
 </head>
 <body>
     <div id="app"></div>
     <script>
-
     </script>
       <script src="model.js"></script>
       <script defer src="view.js"></script>

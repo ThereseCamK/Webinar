@@ -1,8 +1,18 @@
 function pickUp(index){
-    console.log(index)
     let item = model.pickUpItems[index];
-    model.inventory.push(item)
-    model.pickUpItems.splice(index,1);
+    model.inventory.push(model.pickUpItems[index])
+    model.pickUpItems.splice(index,1)
+   
+    // console.table('trykt på item: ' + item.name)
+    // model.inventory.push(item)
+    // model.pickUpItems.splice(index,1);
+    // console.log(model.itemView)
+    // let tøys = model.itemView.find(x => x.includes(item.img))
+    // console.log('prøver å finne riktig item' + tøys)
+    // let itemIndex = model.itemView.indexOf(tøys)
+    // model.itemView.splice(itemIndex,1)
+    // console.log(itemIndex, 'index')
+    showItems();
     updateMainView()
 }
 
@@ -18,17 +28,24 @@ function randomBossFightCheck(index){
 }
 
 function increaseHealth(value){
+    console.log(value, ' health increase')
     model.healthBar += value;
+    if(model.healthBar > 100){
+        model.currentLevel ++;
+        model.healthBar = 100;
+    }
+
     updateMainView()
 }
 
-function increaseCodeSkills(){
-    model.levelCode++;
+function increaseCodeSkills(amount){
+    console.log(amount, ' code skillz')
+    model.levelCode += amount;
     updateMainView()
 }
 
-function increaseNkSkills(){
-    model.levelNK++;
+function increaseNkSkills(amount){
+    model.levelNK+= amount;
     updateMainView()
 }
 
@@ -99,14 +116,23 @@ function completeLevel(){
     updateMainView()
 }
 
-function useInventoryItem(itemToUse){
-    if(itemToUse.useToTasks == true){
-        increaseHealth(itemToUse.healthXp)
+function useInventoryItem(index){    
+    let itemToUse = getObjectById(index);
+    if(itemToUse.useToTasks == false){
+        increaseHealth(itemToUse.healthXp)       
     }else{
         increaseNkSkills(itemToUse.nkSkillz)
         increaseCodeSkills(itemToUse.codeSkillz)
     }
+    model.inventory.splice(index,1 );
+    model.inventoryMode = false;
+    showItems();
+    showInventory();
     updateMainView()
+}
+
+function getObjectById(index){
+    return model.inventory[index];
 }
 
 function buyEnergyDrink(){

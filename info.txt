@@ -41,3 +41,12 @@ View
 
 Controller
 
+
+
+therese tirsdag: 
+
+- busk som dukker opp,
+trykker du på busken så dukker det opp en "boss" - den har en tekstoppgave- 
+f.eks hvordan lage en variabel i javascript? - svaralternativer. 
+array med  
+
