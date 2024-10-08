@@ -1,7 +1,15 @@
 function pickUp(index){
-    let item = model.pickUpItems[index];
-    model.inventory.push(model.pickUpItems[index])
-    model.pickUpItems.splice(index,1)
+    // let item = model.pickUpItems[index];
+    if(model.pickUpItems[index].boss == true){
+      
+        showBoss();
+    }
+    else{
+        model.inventory.push(model.pickUpItems[index])
+        model.pickUpItems.splice(index,1)
+        showItems();
+    }
+   
    
     // console.table('trykt på item: ' + item.name)
     // model.inventory.push(item)
@@ -12,7 +20,7 @@ function pickUp(index){
     // let itemIndex = model.itemView.indexOf(tøys)
     // model.itemView.splice(itemIndex,1)
     // console.log(itemIndex, 'index')
-    showItems();
+
     updateMainView()
 }
 
@@ -123,6 +131,7 @@ function useInventoryItem(index){
     }else{
         increaseNkSkills(itemToUse.nkSkillz)
         increaseCodeSkills(itemToUse.codeSkillz)
+        model.itemUsed.push(itemToUse.name)
     }
     model.inventory.splice(index,1 );
     model.inventoryMode = false;

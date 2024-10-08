@@ -26,7 +26,7 @@ function updateMainView(){
         </div>
        ${model.itemView}
         <img src="/pictures/twoHeadsNoBG.png" style=" heigth: 400px; width: 400px; position: absolute; left: 70%;  top:56%;" />
-        <img onclick="showInventory()" src="pictures/bag.jpg" style="height: 100px;  position: absolute; left: 85%;  top:1%;">
+        <img onclick="showInventory()" src="pictures/bagr.png" style="height: 100px;  position: absolute; left: 85%;  top:1%;">
         <div class="bagContent" style="color: white;  position: absolute; left: 85%;  top:10%;">${model.bagview}</div>
         </div>
 
@@ -147,4 +147,109 @@ function fightView(){
     <button onclick="fightOpponent(${opponent})"></button>
     ` 
     return html;
+}
+
+function showBoss(){
+    model.itemView = '';
+    let randomBoss = Math.floor(Math.random()* model.opponents.length )
+    console.log(model.opponents[randomBoss].equipmentNeedToTask)
+    model.itemView += `
+    
+    <div class="boss">
+            <h1> Du møtte på en boss! </h1>
+            <p>navn: ${model.opponents[randomBoss].name}</p>
+    `;
+    checkIfYouHaveItemToFightBoss(randomBoss,);
+    model.itemView += `</div>`
+    updateMainView();
+}
+
+function checkIfYouHaveItemToFightBoss(randomBoss) {
+    if (model.itemUsed.includes(model.opponents[randomBoss].equipmentNeedToTask)) {
+        model.itemView += `
+        <img style=" heigth: 300px; width: 300px;" src="${model.opponents[randomBoss].img}"/>
+        
+        `;
+        model.itemView += checkBoss(randomBoss);
+        console.log(checkBoss(randomBoss));
+    }
+    else {
+        model.itemView += `<h3>Plukk opp det du trenger for å fighte denne bossen</h3>
+        <button onclick="showItems()">Tilbake</button>
+        `;
+
+    }
+}
+
+function checkBoss(boss){
+
+    let html = ''
+    console.log(boss)
+    if(model.opponents[boss].codeMaster == true){
+      html +=  showQuestion(model.opponents[boss].level, 'codeQestions', boss)
+    }
+    else {
+       html +=  showQuestion(model.opponents[boss].level, 'nkQuestions', boss)
+    }
+    return html;
+
+}
+
+function showQuestion(bossLevel, bossMaster, bossIndex){
+   console.log(bossIndex, ' hva er bosIndex i showWuestion')
+   let html = '';
+  
+    if(bossMaster == 'codeQestions'){
+        console.log(model.codeQuestions[bossLevel].question)
+    html += `<h3>${model.codeQuestions[bossLevel].question }</h3>`
+            for(let i = 0; i < model.codeQuestions[bossLevel].options.length; i++){
+                html += `<button onclick="checkIfCodeQuestionIsCorrect(${i}, ${bossLevel}, ${bossIndex})">${model.codeQuestions[bossLevel].options[i]}</button> <br>`
+            }
+            console.log(model.codeQuestions[bossLevel], ' hva er hele denne')
+    }
+    else {
+        console.log(model.nkQuestions[bossLevel].question)
+        html += `<h3>${model.nkQuestions[bossLevel].question }</h3>`
+        for(let i = 0; i < model.nkQuestions[bossLevel].options.length; i++){
+            html += `<button onclick="checkIfNkQuestionIsCorrect(${i}, ${bossLevel}, ${bossIndex})">${model.nkQuestions[bossLevel].options[i]}</button> <br>`
+        }
+    }
+   
+    return html 
+
+
+}
+
+function checkIfCodeQuestionIsCorrect(index, bossLevel, bossIndex){
+  
+    let question = model.codeQuestions[bossLevel]
+    if(question.correctAnswer == index){
+     
+        model.levelCode += 10;
+        model.opponents[bossIndex].health -= 30;
+        model.opponents[bossIndex].level ++;;
+        
+        // må ha en sjekk på helsa til motstadner, bruker og til squillz
+    }
+    else{
+        model.healthBar -=20;
+    }
+    showItems();
+ 
+  
+}
+function checkIfNkQuestionIsCorrect(index, bossLevel, bossIndex){
+    let question = model.nkQuestions[bossLevel]
+    console.log( bossIndex)
+    if(question.correctAnswer == index){
+        model.levelNK += 10;
+        model.opponents[bossIndex].health -= 30;
+        model.opponents[bossIndex].level ++;;
+
+    }
+    else{
+        model.healthBar -=20;
+    }
+    showItems();
+  
 }
