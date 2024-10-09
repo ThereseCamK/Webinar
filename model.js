@@ -100,7 +100,116 @@ codeQuestions: [
       question: "Hva gjør `console.log()` i JavaScript?",
       options: ["Stopper koden", "Skriver tekst til nettleserkonsollen", "Starter en server"],
       correctAnswer: 1
-    }
+    },
+    {
+      question: "Hva brukes `<div>`-elementet til i HTML?",
+      options: [
+        "For å lage en knapp",
+        "For å lage en lenke",
+        "For å gruppere innhold eller andre elementer i et blokkelement"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Hva er den riktige måten å lage en lenke i HTML?",
+      options: [
+        "<a href='https://example.com'>Klikk her</a>",
+        "<link='https://example.com'>Klikk her</link>",
+        "<a>https://example.com</a>"
+      ],
+      correctAnswer: 0
+    },
+    {
+      question: "Hvilket HTML-element brukes for å inkludere JavaScript-kode på en nettside?",
+      options: [
+        "<style>",
+        "<script>",
+        "<code>"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hva brukes `alt`-attributtet til på et `<img>`-element?",
+      options: [
+        "For å gi et alternativt bilde hvis det originale ikke laster",
+        "For å gi en alternativ tekstbeskrivelse av bildet for skjermlesere",
+        "For å formatere bildet"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvordan definerer du en HTML-kommentar?",
+      options: [
+        "<!-- Dette er en kommentar -->",
+        "// Dette er en kommentar",
+        "/* Dette er en kommentar */"
+      ],
+      correctAnswer: 0
+    },
+    {
+      question: "Hva står CSS for?",
+      options: [
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Computer Style Sheets"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvordan kan du endre fargen på tekst i CSS?",
+      options: [
+        "color: blue;",
+        "text-color: blue;",
+        "font-color: blue;"
+      ],
+      correctAnswer: 0
+    },
+    {
+      question: "Hvilken CSS-egenskap brukes for å justere mellomrommet mellom bokstaver?",
+      options: [
+        "letter-spacing",
+        "word-spacing",
+        "text-spacing"
+      ],
+      correctAnswer: 0
+    },
+    {
+      question: "Hvordan lager du en CSS-kommentar?",
+      options: [
+        "// Dette er en kommentar",
+        "/* Dette er en kommentar */",
+        "<!-- Dette er en kommentar -->"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvordan kan du sentrere et element horisontalt med CSS?",
+      options: [
+        "margin-left: auto; margin-right: auto;",
+        "text-align: center;",
+        "padding: center;"
+      ],
+      correctAnswer: 0
+    },
+    {
+      question: "Hva gjør `document.getElementById('myId')` i JavaScript?",
+      options: [
+        "Det endrer teksten til et element med ID 'myId'",
+        "Det finner og returnerer et element med ID 'myId'",
+        "Det sletter et element med ID 'myId'"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvordan kan du deklarere en variabel i JavaScript?",
+      options: [
+        "var, let, const",
+        "let, const, def",
+        "var, const, function"
+      ],
+      correctAnswer: 0
+    },
+
   ],
   nkQuestions:[
     {
