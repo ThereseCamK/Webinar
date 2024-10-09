@@ -151,6 +151,51 @@ codeQuestions: [
         "De tar utfordringer bare når de er sikre på at de kan vinne"
       ],
       correctAnswer: 0
+    },
+    {
+      question: "Hva betyr psykologisk trygghet i en arbeidsgruppe?",
+      options: [
+        "At folk ikke får gi tilbakemeldinger",
+        "At alle i gruppen føler seg trygge på å ta risiko uten frykt for negative konsekvenser",
+        "At man unngår konflikter for enhver pris"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvordan kan du bidra til psykologisk trygghet i et team?",
+      options: [
+        "Ved å kritisere andres ideer raskt og tydelig",
+        "Ved å lytte aktivt og vise respekt for andres meninger og ideer",
+        "Ved å unngå å si noe som kan oppfattes som feil"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvordan reagerer et team med høy psykologisk trygghet på feil?",
+      options: [
+        "De straffer den som gjorde feil",
+        "De lærer av feilene og ser det som en mulighet til å forbedre seg",
+        "De ignorerer feilen og går videre"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hvilken effekt har psykologisk trygghet på kreativitet?",
+      options: [
+        "Den reduserer kreativitet fordi folk blir forsiktige",
+        "Den øker kreativiteten fordi folk tør å dele ideer uten frykt for kritikk",
+        "Den har ingen effekt på kreativitet"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Hva bør en leder gjøre for å fremme psykologisk trygghet i teamet sitt?",
+      options: [
+        "Oppmuntre åpenhet og tilbakemeldinger, og være et godt eksempel ved å innrømme egne feil",
+        "Holde møter korte for å unngå uenigheter",
+        "Unngå å ta opp feil for å bevare harmonien"
+      ],
+      correctAnswer: 0
     }
   ],
 opponents:[
