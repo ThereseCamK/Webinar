@@ -1,22 +1,57 @@
-updateMainView();
+updateView()
+
+function updateView(){
+    if(model.currentPage == 'welcomePage'){
+        ShowStartScreen();
+    }
+    if(model.currentPage == 'startPage'){
+        model.itemView = showItems();
+        if(model.currentLevel == 4){
+            model.itemView = `<div class="text">Gratulerer du har vunnet ultimate codeskills og nkskills!</div>` 
+        }
+        updateMainView();
+    }
+    if(model.currentPage == 'fightPage')
+    {
+        model.itemView = showBoss();
+        updateMainView()        
+    }
+    if(model.currentPage == 'itemPage'){
+        model.itemView = showItems();
+        updateMainView();
+    }
+    if(model.currentPage == 'gameOver'){
+        document.getElementById('app').innerHTML = `
+        <div class="welcomePage" >
+        <div class="text">Du ble slått av den dyktige ${model.currentBoss.name} sine spørsmål</div>
+        <img class="pic" height= 420px; src='pictures/gameover.png' />  
+       <button class="startGameButton" onclick="window.location.reload()">Start nytt spill</button> </div>`
+    }
+    
+}
+
+function ShowStartScreen(){   
+    let html = /*HTML*/`
+    <div class="welcomePage" >
+    <h1 class="welcomeMsg">Velkommen til Therese og Maries Eventyrlige spill!</h1>
+    <button class="startGameButton" onclick="startGame()">Start nytt spill</button>
+    <br>
+    <img class="pic" height= 420px; src='pictures/twoHeadsNoBG.png' />   
+    </div>    
+    `
+    document.getElementById('app').innerHTML = html; 
+}
+
+function startGame(){
+    model.currentPage = 'startPage'
+    updateView()
+}
 
 function updateMainView(){
-    let html =''
-    // bakgrunnsbilde, den skal oppdateres i henhold til level
-    // levelbar code
-    // levelbar Nk
-    // karakter
-    // penger
-    // ting man kan trykke på ( inventoy items)
-    // ryggsekk (inventory)
-    // nice to have store Ds
-    // motstander
-
-    html = /*HTML*/`
+    let html =/*HTML*/`
         <div class="mainContent" style="background-image: url(${model.backgroundImgs[model.currentLevel -1]}); background-size: cover;">
       
         <div class="row1 levelBarCodeSkillz">
-
             <div class="bar" style="width:${model.levelCode}%; background-color: ${getBackgroundColor(model.levelCode)};">
                 CodeSkillz:
             </div>
@@ -40,22 +75,12 @@ function updateMainView(){
         <div class="bagContent" style="color: white;  position: absolute; left: 85%;  top:10%;">${model.bagview}</div>
         </div>
 
-    `
-   
+    `   
     document.getElementById('app').innerHTML = html;
 }
 
-// function generateItemView(){
-//  model.itemView.push(itemPicture());
-//  model.itemView.push(itemPicture());
-//  model.itemView.push(itemPicture());
-
-//  updateMainView();
-// }
-showItems();
 function showItems(){
     let html = '';
-
     for(let i = 0; i < model.pickUpItems.length; i++){
         if(model.currentLevel == model.pickUpItems[i].level){
             if(model.inventoryMode == false){
@@ -70,16 +95,11 @@ function showItems(){
                 <img onclick="pickUp(${i})" 
                    src="${model.pickUpItems[i].img}" style=" heigth: 200px; width: 200px; position: absolute; left: ${model.itemLeft}%;  top:${model.itemTop}%;"/>
                 `
-            }
-            
-          
-        }
-      
+            }                    
+        }      
     }
-    model.itemView = html;
-    updateMainView();
+    return html;
 }
-
 
 function randomLeft(){
     return Math.floor(Math.random()*60 +1);
@@ -99,11 +119,9 @@ function itemPicture(){
     else return '';
 }
 
-//
 function getRendomItemPos(){
     model.itemLeft = Math.floor(Math.random()* 60 ) +1;
-    model.itemTop = 10 + Math.floor(Math.random()* 50 ) ;
-  
+    model.itemTop = 10 + Math.floor(Math.random()* 50 );  
 }
 
 function getBackgroundColor(statusBar){
@@ -111,7 +129,7 @@ function getBackgroundColor(statusBar){
     if(statusBar < 40){
         bckColor = 'red'
     }
-    else if(statusBar < 70 && statusBar > 40){
+    else if(statusBar <= 70 && statusBar >= 40){
       
         bckColor = 'yellow'
     }
@@ -140,25 +158,4 @@ function showInventory(){
     model.bagview = html;
     updateMainView();
 }
-
-
-
-
-// function showStore(){
-
-// }
-
-// function fightView(){
-//     let opponent = getBoss();
-//     let html = `
-//     <img src="${opponent.img}">
-//     <div>${opponent.health}</div>
-//     <img src="pictures/twoHeads.jpg">
-//     <div>${model.healthBar}</div>
-//     <div>${model.levelCode}</div>
-//     <div>${model.levelNK}</div>
-//     <button onclick="fightOpponent(${opponent})"></button>
-//     ` 
-//     return html;
-// }
 

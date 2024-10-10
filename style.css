@@ -1,0 +1,153 @@
+body,html{ 
+    margin:0;
+    padding: 0;
+   color:white;
+   letter-spacing: 2px;
+}
+#app{
+    display: flex;
+}
+.mainContent{
+    height: 100vh;
+    width: 100vw;  
+    display: grid;        
+    grid-template-columns: 300px auto;
+    grid-template-rows: repeat(3, 30px) auto;
+    grid-template-areas:'row1 something'
+                        'row2 something'
+                        'row3 something';
+}
+
+.startBtn{
+    height: 50px;
+    width: 50px;
+}
+.whiteText{
+    color: white;
+}
+.row1{
+    grid-area: row1;
+}
+.row2{
+    grid-area: row2;
+}
+.row3{
+    grid-area: row3;
+}
+.levelBarCodeSkillz{
+    border: 3px solid rgb(114, 109, 109);
+    /* grid-column: 1; */
+    width: 100%;
+}  
+.levelBarCodeSkillz:nth-child(1){
+    border-bottom: 0;
+} 
+.levelBarCodeSkillz:nth-child(3){
+    border-top: 0;
+}  
+.bar{
+    height: 100%;
+    font-weight: normal;
+    font-size: x-large;
+    color:rgb(35, 16, 16);
+    letter-spacing: 2px;
+    padding-left: 3px;
+  
+    
+}
+.codeSkillz{
+    /* grid-row: 1; */
+    height: 30px;
+}
+.nkSkillz{         
+    /* grid-row: 2; */
+    height: 30px;
+}
+.health{
+    /* grid-row: 3; */
+    height: 30px;
+}
+.bagContent{
+    color:white;
+    font-size: 30px;
+}
+
+.boss{
+    color: white;
+    margin-left: 10px;
+    margin-top: 40px;
+    font-size: x-large;
+    letter-spacing: 2px;
+
+}
+.text{
+    height: 100px;
+    color: rgb(20, 29, 124);
+    font-size: 40px;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    margin-top: 450px;
+}
+.welcomePage{
+    background-image: url('pictures/mountains.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    height: 100vh;
+    width: 100vw;  
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+}
+.startGameButton{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(169, 138, 138, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10%;
+    font-size: larger;
+    color: white;
+}
+.pic{
+    position: absolute; 
+    top:56%;
+}
+
+.welcomeMsg{
+    margin-top: 20%;
+}
+.questionButton{
+    width: 800px;
+    height: 50px;
+    background-color: rgba(169, 138, 138, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    font-size: larger;
+    color: white;
+    margin: 1%;
+    border: 2px solid black;
+}
+.questionButton:hover{
+    background-color: rgba(251, 246, 246, 0.5);
+    backdrop-filter: blur(5px);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+    color: rgb(0, 0, 9);
+}
+.question{
+   
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    text-shadow: 1px 1px 2px black;
+    
+
+}
+h3{
+
+    font-size: xx-large;
+    color: rgb(245, 237, 245);
+    background-color: rgba(1, 1, 1, 0.2);
+    backdrop-filter: blur(10px);
+}

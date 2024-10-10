@@ -3,15 +3,21 @@ function getRandomItem(){
  }
 function pickUp(index){
   
+    
     if(model.pickUpItems[index].boss == true){
-        showBoss();
+        model.currentPage = 'fightPage'     
     }
     else{
+        model.itemsPickedUp++;
         model.inventory.push(model.pickUpItems[index])
         model.pickUpItems.splice(index,1)
-        showItems();
+        model.currentPage = 'startPage'
+        //showItems();
     }
-    updateMainView()
+    if(model.itemsPickedUp == 2 && model.levelBossDefeated){
+        completeLevel();  
+    }
+    updateView();
 }
 
 function useInventoryItem(index){    
@@ -31,52 +37,57 @@ function useInventoryItem(index){
 }
 
 function increaseHealth(value){
+   
     model.healthBar += value;
-    if(model.healthBar >= 100){
+    if(model.healthBar>100){
         model.healthBar = 100;
-        completeLevel();
     }
-
-    updateMainView()
+    updateView()
 }
 function completeLevel(){
+    model.itemsPickedUp == 0;
     model.currentLevel++;
-    updateMainView()
+    model.levelBossDefeated = false;
+   
+    updateView()
 }
 
 function increaseCodeSkills(amount){
     console.log(amount, ' code skillz')
     model.levelCode += amount;
-    updateMainView()
+    updateView()
 }
 
 
 function increaseNkSkills(amount){
     model.levelNK+= amount;
-    updateMainView()
+    updateView()
 }
 
 function areWeDead(){
     if(model.healthBar <= 0){
-        alert('We døde')
-    }
-    else{
-      
-    }
-    return false;
+       model.currentPage = 'gameOver'
+       updateView();
+    }  
 }
-
-
 
 function looseHealth(value){
     model.healthBar -= value;
+    updateView()
 }
 
+function looseNk(){
+    model.levelNK -= 10;
+    updateView()
+}
+function looseCodeSkillz(){
+    model.levelCode -= 10;
+    updateView()
+}
 
 function getRandomCash(){
     return cashMoney[Math.floor(Math.random() * cashMoney.length)]
 }
-
 
 function getObjectById(index){
     return model.inventory[index];
@@ -91,7 +102,7 @@ function buyEnergyDrink(){
         useToTasks: false,
         img: '',
     })
-    updateMainView()
+    updateView()
 }
 
 function buyCoffe(){
@@ -104,5 +115,5 @@ function buyCoffe(){
         img: '',
 
     })
-    updateMainView()
+    updateView()
 }

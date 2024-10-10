@@ -3,17 +3,20 @@ const model = {
 // itemImages 
 userName: '',
 userImg: 'pictures/twoHeads.jpg',
-currentPage: '',
+currentPage: 'welcomePage',
 statusText: 'Two girls ready to go on an adventure!',
 currentLevel: 1,
 healthBar: 90,
 cashMoney:[1,5,10,50],
+itemsPickedUp: 0,
+levelBossDefeated: true,
 itemTop: 75,// min 10, max 70
 itemLeft: 60, // min 1, max 60
 moneyBank: 0,
-levelNK : 30,
+levelNK : 60,
 levelCode: 60,
 itemView: '',
+currentBoss: '',
 inventoryMode: false,
 backgroundImgs:['pictures/dungeon.png', 'pictures/forest.png', 'pictures/lair.png', 'pictures/mountains.png'],
 pickUpItems:[
@@ -49,15 +52,6 @@ pickUpItems:[
         level: 2
     },
     {
-        name: 'tastatur',
-        healthXp: 0,
-        codeSkillz: 10,
-        nkSkillz: 0,
-        useToTasks: true,
-        img: '/pictures/keyboard.png',
-        level: 2
-    },
-    {
         name: 'mikrofon',
         healthXp: 0,
         codeSkillz: 0,
@@ -66,6 +60,25 @@ pickUpItems:[
         img: '/pictures/mic.png',
         level: 2
     },
+    {
+      name: 'rock',
+      healthXp: 0,
+      codeSkillz: 0,
+      nkSkillz: 0,
+      useToTasks: false,
+      boss: true,
+      img: '/pictures/rock.png',
+      level: 3
+  },
+  {
+    name: 'tastatur',
+    healthXp: 0,
+    codeSkillz: 10,
+    nkSkillz: 0,
+    useToTasks: true,
+    img: '/pictures/keyboard.png',
+    level: 3
+},
 ],
 bagview: '',
 inventory: [],
@@ -92,106 +105,6 @@ codeQuestions: [
       correctAnswer: 0
     },
     {
-      question: "Hvordan definerer man en funksjon i JavaScript?",
-      options: ["function myFunction() { }", "def myFunction() { }", "fn myFunction() { }"],
-      correctAnswer: 0
-    },
-    {
-      question: "Hva gjør `console.log()` i JavaScript?",
-      options: ["Stopper koden", "Skriver tekst til nettleserkonsollen", "Starter en server"],
-      correctAnswer: 1
-    },
-    {
-      question: "Hva brukes `<div>`-elementet til i HTML?",
-      options: [
-        "For å lage en knapp",
-        "For å lage en lenke",
-        "For å gruppere innhold eller andre elementer i et blokkelement"
-      ],
-      correctAnswer: 2
-    },
-    {
-      question: "Hva er den riktige måten å lage en lenke i HTML?",
-      options: [
-        "<a href='https://example.com'>Klikk her</a>",
-        "<link='https://example.com'>Klikk her</link>",
-        "<a>https://example.com</a>"
-      ],
-      correctAnswer: 0
-    },
-    {
-      question: "Hvilket HTML-element brukes for å inkludere JavaScript-kode på en nettside?",
-      options: [
-        "<style>",
-        "<script>",
-        "<code>"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hva brukes `alt`-attributtet til på et `<img>`-element?",
-      options: [
-        "For å gi et alternativt bilde hvis det originale ikke laster",
-        "For å gi en alternativ tekstbeskrivelse av bildet for skjermlesere",
-        "For å formatere bildet"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hvordan definerer du en HTML-kommentar?",
-      options: [
-        "<!-- Dette er en kommentar -->",
-        "// Dette er en kommentar",
-        "/* Dette er en kommentar */"
-      ],
-      correctAnswer: 0
-    },
-    {
-      question: "Hva står CSS for?",
-      options: [
-        "Creative Style Sheets",
-        "Cascading Style Sheets",
-        "Computer Style Sheets"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hvordan kan du endre fargen på tekst i CSS?",
-      options: [
-        "color: blue;",
-        "text-color: blue;",
-        "font-color: blue;"
-      ],
-      correctAnswer: 0
-    },
-    {
-      question: "Hvilken CSS-egenskap brukes for å justere mellomrommet mellom bokstaver?",
-      options: [
-        "letter-spacing",
-        "word-spacing",
-        "text-spacing"
-      ],
-      correctAnswer: 0
-    },
-    {
-      question: "Hvordan lager du en CSS-kommentar?",
-      options: [
-        "// Dette er en kommentar",
-        "/* Dette er en kommentar */",
-        "<!-- Dette er en kommentar -->"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hvordan kan du sentrere et element horisontalt med CSS?",
-      options: [
-        "margin-left: auto; margin-right: auto;",
-        "text-align: center;",
-        "padding: center;"
-      ],
-      correctAnswer: 0
-    },
-    {
       question: "Hva gjør `document.getElementById('myId')` i JavaScript?",
       options: [
         "Det endrer teksten til et element med ID 'myId'",
@@ -199,15 +112,6 @@ codeQuestions: [
         "Det sletter et element med ID 'myId'"
       ],
       correctAnswer: 1
-    },
-    {
-      question: "Hvordan kan du deklarere en variabel i JavaScript?",
-      options: [
-        "var, let, const",
-        "let, const, def",
-        "var, const, function"
-      ],
-      correctAnswer: 0
     },
 
   ],
@@ -250,80 +154,26 @@ codeQuestions: [
         "Bruke tilbakemeldingene som en kilde til vekst og forbedring",
       ],
       correctAnswer: 2
-    },
-    {
-      question: "Hvordan ser en person med growth mindset på utfordringer?",
-      options: [
-        "De ser utfordringer som en mulighet til å vokse og lære",
-        "De unngår utfordringer fordi de frykter å feile",
-
-        "De tar utfordringer bare når de er sikre på at de kan vinne"
-      ],
-      correctAnswer: 0
-    },
-    {
-      question: "Hva betyr psykologisk trygghet i en arbeidsgruppe?",
-      options: [
-        "At folk ikke får gi tilbakemeldinger",
-        "At alle i gruppen føler seg trygge på å ta risiko uten frykt for negative konsekvenser",
-        "At man unngår konflikter for enhver pris"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hvordan kan du bidra til psykologisk trygghet i et team?",
-      options: [
-        "Ved å kritisere andres ideer raskt og tydelig",
-        "Ved å lytte aktivt og vise respekt for andres meninger og ideer",
-        "Ved å unngå å si noe som kan oppfattes som feil"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hvordan reagerer et team med høy psykologisk trygghet på feil?",
-      options: [
-        "De straffer den som gjorde feil",
-        "De lærer av feilene og ser det som en mulighet til å forbedre seg",
-        "De ignorerer feilen og går videre"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hvilken effekt har psykologisk trygghet på kreativitet?",
-      options: [
-        "Den reduserer kreativitet fordi folk blir forsiktige",
-        "Den øker kreativiteten fordi folk tør å dele ideer uten frykt for kritikk",
-        "Den har ingen effekt på kreativitet"
-      ],
-      correctAnswer: 1
-    },
-    {
-      question: "Hva bør en leder gjøre for å fremme psykologisk trygghet i teamet sitt?",
-      options: [
-        "Oppmuntre åpenhet og tilbakemeldinger, og være et godt eksempel ved å innrømme egne feil",
-        "Holde møter korte for å unngå uenigheter",
-        "Unngå å ta opp feil for å bevare harmonien"
-      ],
-      correctAnswer: 0
     }
   ],
 opponents:[
     {
+    name: 'Eskil',
+    img: '/pictures/eskilBakBusk.png',
+    codeMaster: false,
+    health: 100,
+    level: 0,
+    equipmentNeedToTask: 'mikrofon',
+    },
+    {
         name: 'Terje',
-        img: '/pictures/terje.png',
+        img: '/pictures/terjeBakStein.png',
         codeMaster: true, // false er lik NkMaster
         health: 100,
         level: 0,
         equipmentNeedToTask: 'tastatur',
     },
-    {
-        name: 'Eskil',
-        img: '/pictures/eskil.png',
-        codeMaster: false,
-        health: 100,
-        level: 0,
-        equipmentNeedToTask: 'mikrofon',
-    },
+   
 ],
 
 }

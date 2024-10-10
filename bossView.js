@@ -1,85 +1,80 @@
 //BossView
 function showBoss(){
-    model.itemView = '';
+    let html = ``   
+    model.currentBoss = getBoss();
 
-    let randomBoss = Math.floor(Math.random()* model.opponents.length )
-    console.log(randomBoss, ' hva viser denne?')
-    console.log(model.opponents[randomBoss].equipmentNeedToTask)
-    model.itemView += `
-    
-    <div class="boss">
+    console.log( model.currentBoss.equipmentNeedToTask)
+    html += `
+    <div >
             <h1> Du møtte på en boss! </h1>
-
-        <div  
-            style="width:${model.opponents[randomBoss].level}px; 
-            background-color: blue;">
-             Health: ${model.opponents[randomBoss].health}<br>
-             Level: ${model.opponents[randomBoss].level}
-             </div>
+        <div class="boss">
+             Health: ${ model.currentBoss.health}<br>
+             Level: ${ model.currentBoss.level}
+          
    
-            <p>navn: ${model.opponents[randomBoss].name}</p>
+            <p>navn: ${ model.currentBoss.name}</p>
+               </div>
     `;
-    checkIfYouHaveItemToFightBoss(randomBoss,);
-    model.itemView += `</div>`
-    updateMainView();
+   
+    html += checkIfYouHaveItemToFightBoss(model.currentBoss);
+    html += `</div>`
+    return html;
 }
 
-function checkIfYouHaveItemToFightBoss(randomBoss) {
-    if (model.itemUsed.includes(model.opponents[randomBoss].equipmentNeedToTask)) {
-        model.itemView += `
-            <img style=" heigth: 300px; width: 300px;" src="${model.opponents[randomBoss].img}"/>
-        
+function checkIfYouHaveItemToFightBoss(boss) {
+    let html = ''
+    if (model.itemUsed.includes(boss.equipmentNeedToTask)) {
+        html += `
+            <img style="height: 600px;" src="${boss.img}"/>        
         `;
-        model.itemView += checkBoss(randomBoss);
+        html += checkBoss(boss);
       
     }
     else {
-        model.itemView += `<h3>Plukk opp det du trenger for å fighte denne bossen</h3>
-        <button onclick="showItems()">Tilbake</button>
+        model.currentPage = 'startPage'
+        html += `<h3>Plukk opp det du trenger for å fighte denne bossen</h3>
+        <button onclick="updateView()">Tilbake</button>
         `;
 
     }
+    return html;
 }
 
 function checkBoss(boss){
 
     let html = ''
     console.log(boss)
-    if(model.opponents[boss].codeMaster == true){
-      html +=  showQuestion(model.opponents[boss].level, 'codeQestions', boss)
+    if(boss.codeMaster == true){
+      html +=  showQuestion(boss.level, 'codeQestions', boss)
     }
     else {
-       html +=  showQuestion(model.opponents[boss].level, 'nkQuestions', boss)
+       html +=  showQuestion(boss.level, 'nkQuestions', boss)
     }
     return html;
 
 }
 
-function showQuestion(bossLevel, bossMaster, bossIndex){
+function showQuestion(bossLevel, bossMaster){
  
    let html = '';
-  
+   let question = '';
+   
+  console.log(bossMaster + ' bossMaster')
     if(bossMaster == 'codeQestions'){
-        let question = model.codeQuestions[bossLevel]
-        console.log(question.question)
-                 html += `<h3>${question.question }</h3>`
-            for(let i = 0; i < question.options.length; i++){
-                html += `<button onclick="checkIfCodeQuestionIsCorrect(${i}, ${bossLevel}, ${bossIndex})">
-                ${question.options[i]}
-                </button> <br>`
-            }
+        question = model.codeQuestions[bossLevel]      
     }
     else {
-        let nkQuestion = model.nkQuestions[bossLevel]
-        html += `<h3>${nkQuestion.question }</h3>`
-        for(let i = 0; i < nkQuestion.options.length; i++){
-            html += `<button onclick="checkIfNkQuestionIsCorrect(${i}, ${bossLevel}, ${bossIndex})">
-            ${nkQuestion.options[i]}
-            </button> <br>`
-        }
+        question = model.nkQuestions[bossLevel]
     }
+
+    let correctIndex = question.correctAnswer;       
+    html += `<div class="question"><h3>${question.question }</h3>`
+        for(let i = 0; i < question.options.length; i++){
+        html += `<button class="questionButton" onclick="checkIfQuestionIsCorrect(${i},${model.currentLevel-2}, ${correctIndex}, '${bossMaster}')">
+        ${question.options[i]}
+        </button> <br>`
+        }
+        html+= `</div>`
    
-    return html 
-
-
+    return html;
 }
