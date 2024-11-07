@@ -3,7 +3,6 @@ function showBoss(){
     let html = ``   
     model.currentBoss = getBoss();
 
-    console.log( model.currentBoss.equipmentNeedToTask)
     html += `
     <div >
             <h1> Du møtte på en boss! </h1>
@@ -32,7 +31,7 @@ function checkIfYouHaveItemToFightBoss(boss) {
     }
     else {
         model.currentPage = 'startPage'
-        html += `<h3>Plukk opp det du trenger for å fighte denne bossen</h3>
+        html += `<h3>Plukk opp og bruk det du trenger for å fighte denne bossen</h3>
         <button onclick="updateView()">Tilbake</button>
         `;
 
@@ -43,7 +42,6 @@ function checkIfYouHaveItemToFightBoss(boss) {
 function checkBoss(boss){
 
     let html = ''
-    console.log(boss)
     if(boss.codeMaster == true){
       html +=  showQuestion(boss.level, 'codeQestions', boss)
     }
@@ -59,7 +57,6 @@ function showQuestion(bossLevel, bossMaster){
    let html = '';
    let question = '';
    
-  console.log(bossMaster + ' bossMaster')
     if(bossMaster == 'codeQestions'){
         question = model.codeQuestions[bossLevel]      
     }

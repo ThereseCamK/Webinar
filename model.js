@@ -1,18 +1,13 @@
 const model = {
-// backgroundImages
-// itemImages 
-userName: '',
 userImg: 'pictures/twoHeads.jpg',
 currentPage: 'welcomePage',
 statusText: 'Two girls ready to go on an adventure!',
 currentLevel: 1,
 healthBar: 90,
-cashMoney:[1,5,10,50],
 itemsPickedUp: 0,
 levelBossDefeated: true,
 itemTop: 75,// min 10, max 70
 itemLeft: 60, // min 1, max 60
-moneyBank: 0,
 levelNK : 60,
 levelCode: 60,
 itemView: '',

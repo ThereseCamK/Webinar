@@ -2,8 +2,6 @@ function getRandomItem(){
     return Math.floor(Math.random() * model.pickUpItems.length)
  }
 function pickUp(index){
-  
-    
     if(model.pickUpItems[index].boss == true){
         model.currentPage = 'fightPage'     
     }
@@ -12,7 +10,6 @@ function pickUp(index){
         model.inventory.push(model.pickUpItems[index])
         model.pickUpItems.splice(index,1)
         model.currentPage = 'startPage'
-        //showItems();
     }
     if(model.itemsPickedUp == 2 && model.levelBossDefeated){
         completeLevel();  
@@ -25,19 +22,16 @@ function useInventoryItem(index){
     if(itemToUse.useToTasks == false){
         increaseHealth(itemToUse.healthXp)       
     }else{
-        // increaseNkSkills(itemToUse.nkSkillz)
-        // increaseCodeSkills(itemToUse.codeSkillz)
         model.itemUsed.push(itemToUse.name)
+        //Printe ut du har brukt et special item ELNS
     }
     model.inventory.splice(index,1 );
     model.inventoryMode = false;
     showItems();
     showInventory();
- 
 }
 
-function increaseHealth(value){
-   
+function increaseHealth(value){   
     model.healthBar += value;
     if(model.healthBar>100){
         model.healthBar = 100;
@@ -47,8 +41,7 @@ function increaseHealth(value){
 function completeLevel(){
     model.itemsPickedUp == 0;
     model.currentLevel++;
-    model.levelBossDefeated = false;
-   
+    model.levelBossDefeated = false;   
     updateView()
 }
 
@@ -57,7 +50,6 @@ function increaseCodeSkills(amount){
     model.levelCode += amount;
     updateView()
 }
-
 
 function increaseNkSkills(amount){
     model.levelNK+= amount;
@@ -84,36 +76,7 @@ function looseCodeSkillz(){
     model.levelCode -= 10;
     updateView()
 }
-
-function getRandomCash(){
-    return cashMoney[Math.floor(Math.random() * cashMoney.length)]
-}
-
 function getObjectById(index){
     return model.inventory[index];
 }
 
-function buyEnergyDrink(){
-    model.inventory.add( {
-        name: 'energidrikk',
-        healthXp: 20,
-        codeSkillz: 0,
-        nkSkillz: 0,
-        useToTasks: false,
-        img: '',
-    })
-    updateView()
-}
-
-function buyCoffe(){
-    model.inventory.add({
-        name: 'kaffe',
-        healthXp: 10,
-        codeSkillz: 0,
-        nkSkillz: 0,
-        useToTasks: false,
-        img: '',
-
-    })
-    updateView()
-}
