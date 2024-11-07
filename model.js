@@ -1,5 +1,5 @@
 const model = {
-userImg: 'pictures/twoHeads.jpg',
+userImg: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/twoHeads.jpg?raw=true',
 currentPage: 'welcomePage',
 statusText: 'Two girls ready to go on an adventure!',
 currentLevel: 1,
@@ -22,7 +22,7 @@ pickUpItems:[
         nkSkillz: 0,
         useToTasks: false,
         boss: false,
-        img: '/pictures/coffee.png',
+        img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/coffee.png?raw=true',
         level: 1,
 
     },
@@ -33,7 +33,7 @@ pickUpItems:[
         nkSkillz: 0,
         useToTasks: false,
         boss: false,
-        img: '/pictures/redbull.png',
+        img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/redbull.png?raw=true',
         level: 1
     },
     {
@@ -43,7 +43,7 @@ pickUpItems:[
         nkSkillz: 0,
         useToTasks: false,
         boss: true,
-        img: '/pictures/busk.png',
+        img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/busk.png?raw=true',
         level: 2
     },
     {
@@ -52,7 +52,7 @@ pickUpItems:[
         codeSkillz: 0,
         nkSkillz: 10,
         useToTasks: true,
-        img: '/pictures/mic.png',
+        img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/mic.png?raw=true',
         level: 2
     },
     {
@@ -62,7 +62,7 @@ pickUpItems:[
       nkSkillz: 0,
       useToTasks: false,
       boss: true,
-      img: '/pictures/rock.png',
+      img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/rock.png?raw=true',
       level: 3
   },
   {
@@ -71,7 +71,7 @@ pickUpItems:[
     codeSkillz: 10,
     nkSkillz: 0,
     useToTasks: true,
-    img: '/pictures/keyboard.png',
+    img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/keyboard.png?raw=true',
     level: 3
 },
 ],
@@ -154,7 +154,7 @@ codeQuestions: [
 opponents:[
     {
     name: 'Eskil',
-    img: '/pictures/eskilBakBusk.png',
+    img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/eskilBakBusk.png?raw=true',
     codeMaster: false,
     health: 100,
     level: 0,
@@ -162,7 +162,7 @@ opponents:[
     },
     {
         name: 'Terje',
-        img: '/pictures/terjeBakStein.png',
+        img: 'https://github.com/ThereseCamK/Webinar/blob/main/pictures/terjeBakStein.png?raw=true',
         codeMaster: true, // false er lik NkMaster
         health: 100,
         level: 0,
