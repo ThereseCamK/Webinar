@@ -24,7 +24,7 @@ levelCode: 60,
 itemView: '',
 currentBoss: '',
 inventoryMode: false,
-backgroundImgs:['pictures/Christmas/cabin.jpg', 'pictures/Christmas/Christmas.jpg', 'pictures/Christmas/christmas.png', 'pictures/Christmas/balss.jpg'],
+backgroundImgs:['pictures/Christmas/cabin.jpg', 'pictures/Christmas/Christmas.jpg', 'pictures/Christmas/snow.jpg', 'pictures/Christmas/balss.jpg'],
 
 pickUpItems:[
     {

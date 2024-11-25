@@ -33,9 +33,10 @@ function updateMainView(){
         ${drawBar('row3', model.healthBar, 'Health')}
         ${model.itemView}
         <img src="${model.userImg}" style=" heigth: 400px; width: 400px; position: absolute; left: 70%;  top:56%;" />
-        <img onclick="showInventory()" src="pictures/Christmas/julesekk.png" style="height: 100px;  position: absolute; left: 85%;  top:1%;">
-        <div class="bagContent" style="color: white;  position: absolute; left: 85%;  top:10%;">${model.bagview}</div>
+        <img onclick="toggleBagView()" src="pictures/Christmas/julesekk.png" style="height: 100px;  position: absolute; left: 85%;  top:1%;">
+        <div class="bagContent" style="color: white;  position: absolute; left: 85%;  top:10%;">${showInventory()}</div>
         </div>
+        
     `   
     document.getElementById('app').innerHTML = html;
 }
@@ -52,10 +53,8 @@ function drawBar(row, barType, barName){
 function showItems(){
     let html = '';
     for(let i = 0; i < model.pickUpItems.length; i++){
-        if(model.currentLevel == model.pickUpItems[i].level){
-            if(model.inventoryMode == false){
-                getRendomItemPos()  
-            }   
+        if(model.currentLevel == model.pickUpItems[i].level){              
+            getRendomItemPos()                               
             html += drawItemImage(i)                     
         }        
     }
@@ -113,10 +112,23 @@ function getBackgroundColor(statusBar){
     return bckColor;
 }
 
+function toggleBagView(){
+    //model.inventoryMode = !model.inventoryMode;
+    if(model.inventoryMode == true){
+        model.inventoryMode = false;
+        model.bagview = ' '
+    }
+    else{
+        model.inventoryMode = true;
+    }
+    console.log(model.inventoryMode)
+    showInventory()
+    updateMainView()
+}
+
 function showInventory(){
     let html = '';
-    if(model.bagview == ''){
-        model.inventoryMode = true;
+    if(model.inventoryMode == true){
         html += '<ul>'
         for(let i = 0; i < model.inventory.length; i++){
             html += `<li onclick="useInventoryItem(${i})">${model.inventory[i].name} <br><img style=" heigth: 50px; width: 50px;" src="${model.inventory[i].img}"/>
@@ -125,10 +137,10 @@ function showInventory(){
         html += '</ul>'
     }
     else{
-        model.inventoryMode = false;
         html = '';
     }
+    
     model.bagview = html;
-    updateMainView();
+    return html;
 }
 

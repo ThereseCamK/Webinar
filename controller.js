@@ -27,9 +27,7 @@ function useInventoryItem(index){
         //Printe ut du har brukt et special item ELNS
     }
     model.inventory.splice(index,1 );
-    model.inventoryMode = false;
-    showItems();
-    showInventory();
+   updateMainView()
 }
 
 function increaseHealth(value){   
