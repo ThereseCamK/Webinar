@@ -15,6 +15,16 @@ function ShowStartScreen(){
 function audioStuff(){    
     audio.play();
     audio.volume = 0.1;
+    let snowfall = new Snowfall({
+        count: 30, // number of snowflakes
+        minRadius: 10, // minimum radius of a snowflake in pixels
+        maxRadius: 30, // maximum radius of a snowflake in pixels
+        minSpeed: 3, // minimum speed of a snowflake in pixels per frame
+        maxSpeed: 6, // maximum speed of a snowflake in pixels per frame
+        text: "\u2744", // text for a snowflake (can be any symbol or text)
+        color: "#ffffff", // color of a snowflake in HEX format
+        zIndex: "1000" // z-index for the snowflakes canvas
+    });
 }
 
 function startGame(){
