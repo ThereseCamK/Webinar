@@ -23,6 +23,7 @@ function useInventoryItem(index){
         increaseHealth(itemToUse.healthXp)       
     }else{
         model.itemUsed.push(itemToUse.name)
+        model.itemView += '<div>Du har brukt det du trenger til å bekjempe en boss!</div>'
         //Printe ut du har brukt et special item ELNS
     }
     model.inventory.splice(index,1 );

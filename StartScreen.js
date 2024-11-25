@@ -1,3 +1,5 @@
+let audio = new Audio('secretsanta/spirit.mp3')
+
 function ShowStartScreen(){   
     let html = /*HTML*/`
     <div class="welcomePage" >
@@ -7,10 +9,16 @@ function ShowStartScreen(){
     <img class="pic" height= 420px; src='${model.userImg}' />   
     </div>    
     `
-    document.getElementById('app').innerHTML = html; 
+    document.getElementById('app').innerHTML = html;  
+}
+
+function audioStuff(){    
+    audio.play();
+    audio.volume = 0.1;
 }
 
 function startGame(){
     model.currentPage = 'startPage'
     updateView()
+    audioStuff()
 }

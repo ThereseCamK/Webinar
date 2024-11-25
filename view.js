@@ -1,3 +1,4 @@
+
 updateView()
 function updateView(){
     if(model.currentPage == 'welcomePage'){
