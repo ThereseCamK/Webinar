@@ -7,6 +7,13 @@ Ribbe, julebrus,
 Ekstra Boss? - Julenisse - random morsomme spm
 Kutte ned helse per boss?
 
+Cookie clicker eller lignendne istedenfor slides
+(Snakker om prosjektet hva vi vil få til) og går gjennom samme topics som slides
+bare via et prosjekt istedenfor.
+(Bruk slides som veiviser til prosjektoppbygging i skritt)
+starter med HTML -> forklaring om dette og tags etc mens
+
+
 Adventure
 Hero(es) Webinarjentene på tur?
 Valgmuligheter; Forskjellige plasser å lete etter ting?

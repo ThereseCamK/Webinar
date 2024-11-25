@@ -9,6 +9,9 @@ body,html{
 }
 .mainContent{
     height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100vw;  
     display: grid;        
     grid-template-columns: 300px auto;
@@ -89,7 +92,7 @@ body,html{
     margin-top: 450px;
 }
 .welcomePage{
-    background-image: url('pictures/mountains.png');
+    background-image: url('pictures/Christmas/cabin.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

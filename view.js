@@ -26,13 +26,13 @@ function updateView(){
 
 function updateMainView(){
     let html =/*HTML*/`
-        <div class="mainContent" style="background-image: url(${model.backgroundImgs[model.currentLevel -1]}); background-size: cover;">    
+        <div class="mainContent" style="background-image: url(${model.backgroundImgs[model.currentLevel -1]});">    
         ${drawBar('row1', model.levelCode, 'CodeSkillz')}
         ${drawBar('row2', model.levelNK, 'NkSkillz')}
         ${drawBar('row3', model.healthBar, 'Health')}
         ${model.itemView}
-        <img src="https://github.com/ThereseCamK/Webinar/blob/main/pictures/twoHeadsNoBG.png?raw=true" style=" heigth: 400px; width: 400px; position: absolute; left: 70%;  top:56%;" />
-        <img onclick="showInventory()" src="pictures/bagr.png" style="height: 100px;  position: absolute; left: 85%;  top:1%;">
+        <img src="${model.userImg}" style=" heigth: 400px; width: 400px; position: absolute; left: 70%;  top:56%;" />
+        <img onclick="showInventory()" src="pictures/Christmas/julesekk.png" style="height: 100px;  position: absolute; left: 85%;  top:1%;">
         <div class="bagContent" style="color: white;  position: absolute; left: 85%;  top:10%;">${model.bagview}</div>
         </div>
     `   
