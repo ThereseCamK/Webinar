@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        h1{
+          text-align: center; 
+          color: red;
+          font-size: 60px;
+        }
+        body{
+            background-color: black;
+            text-align: center; 
+            color: white;
+        }
+    
+        h2{
+            color: white;
+            text-shadow: 2px 2px 10px hotpink;
+        }
+        .buttons{
+            float: left;
+            margin-left: 30%;
+        }
+        button{
+            width: 150px;
+            height: 40px;
+            border-radius: 5%;
+            box-shadow:  grey 5px 5px 10px;
+            margin-bottom: 10%;
+           
+        }
+
+        button:hover{
+            box-shadow: inset black 5px 5px 10px;
+        }
+        #errorMsg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 >Clicker Game</h1>
+        <h2 id="points">Points: </h2>
+        <h3 id="errorMsg"></h3>
+  
+           <div><img id="img" class="image" onclick="clickButton()" src="/pictures/clicker.png"></div> 
+
+            <div class="buttons">  
+                <button onclick="buySmallUpgrade()">Buy Upgrade</button> 
+                <br>costs 10p 
+            </div>
+            <div class="buttons">  
+                <button id="btn" onclick="buyBigUpgrade()">Buy MaxUpgrade</button> 
+                <br> costs 1000p
+            </div>
+          
+
+
+
+    <script>
+        let points = 0;
+        let pointPrClick = 1
+        function clickButton(){
+            points += pointPrClick;
+            document.getElementById('points').innerHTML = "Points " + points
+            document.getElementById('errorMsg').innerHTML = ""
+        }
+        function buySmallUpgrade(){
+            if(points >= 10){
+                pointPrClick ++;
+                points -=10;
+                document.getElementById('points').innerHTML = "Points " + points
+            }
+            else{
+                document.getElementById('errorMsg').innerHTML = "You dont have enough point på buy, please click more, you need: " + (10 - points)
+  
+            }
+   
+        }
+
+
+        function buyBigUpgrade(){
+            if(points >= 1000){
+                pointPrClick += 1000;
+                points -=1000;
+                document.getElementById('points').innerHTML = "Points " + points
+                document.getElementById("img").src = "/pictures/bomb.png";
+                document.getElementById('btn').disabled = true;
+                document.getElementById('errorMsg').innerHTML = "You Cheeta" 
+            
+
+            }
+            else{
+                
+                 document.getElementById('errorMsg').innerHTML = "You dont have enough point på buy, please click more, you need: " + (1000 - points)
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
