@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        h2{
+            border-bottom: 1px solid red;
+        }
+        .content{
+            text-align: center;
+        }
+        body{
+            background-color: black;
+            color: #ffffff;
+        }
+        .btn{
+            width: 150px;
+            height: 50px;
+            font-size: larger;
+            box-shadow: inset 10px 10px 20px black;
+            border-radius: 5%;
+        }
+        .btn:hover{
+           background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="content">
+        <h1 style="color: red;">Clicker Game</h1>
+        <h2 >Trykk på knappen for å få poeng</h2>
+        <p id="points" >Poeng: </p>
+        <img onclick="clicker()"  src="/pictures/clicker.png">
+        <button onclick="buyUprade()" class="btn"> kjøp oppgradering </button>
+        <p id="upgrade"></p>
+    </div>
+
+    <script>
+
+        let points = 0; 
+        let pointsPrClick = 1;
+
+       function clicker(){
+            points = points +pointsPrClick;
+            document.getElementById("points").innerHTML = "Poeng " + points;
+       }
+
+       function buyUprade(){
+            pointsPrClick ++;
+            document.getElementById("upgrade").innerHTML = "Du har kjøpt oppgraderinger, poeng pr klikk er nå: " + pointsPrClick;
+       }
+
+
+
+    </script>
+
+ 
+</body>
+</html>
